@@ -1,1 +1,6 @@
 **/node_modules
+**/venv
+*.egg-info
+# Prevent cache invalidations caused by editing dockerfiles
+Dockerfile
+slim.Dockerfile
