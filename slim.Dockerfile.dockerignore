@@ -1,0 +1,11 @@
+**/node_modules
+*.egg-info
+# Prevent cache invalidations caused by editing dockerfiles
+Dockerfile
+slim.Dockerfile
+
+**/.git
+girder/web_client
+**/package-lock.json
+test/
+tests/

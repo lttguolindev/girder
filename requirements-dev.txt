@@ -23,6 +23,7 @@
 -e plugins/virtual_folders
 
 # External dependencies
+setuptools-scm
 configparser==3.5.0
 coverage
 girder-worker

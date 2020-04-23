@@ -11,12 +11,16 @@ def prerelease_local_scheme(version):
     pre-release in which case it ignores the hash and produces a
     PEP440 compliant pre-release version number (e.g. 0.0.0.dev<N>).
     """
-    from setuptools_scm.version import get_local_node_and_date
 
-    if os.getenv('CIRCLE_BRANCH') == 'master':
+    if os.getenv('CIRCLE_BRANCH') == 'master' or os.getenv('BUILD_ENV') == 'docker-slim':
         return ''
     else:
-        return get_local_node_and_date(version)
+        try:
+            from setuptools_scm.version import get_local_node_and_date
+            return get_local_node_and_date(version)
+        except ImportError:
+            raise 'Could not import setuptools-scm.  Did you install requirements-dev.txt?'
+
 
 
 with open('README.rst') as f:
@@ -59,7 +63,6 @@ extrasReqs = {
 setup(
     name='girder',
     use_scm_version={'local_scheme': prerelease_local_scheme},
-    setup_requires=['setuptools-scm'],
     description='Web-based data management platform',
     long_description=readme,
     author='Kitware, Inc.',
