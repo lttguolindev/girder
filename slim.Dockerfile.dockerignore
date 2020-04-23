@@ -1,3 +1,6 @@
+# for this file to be picked up during build,
+# DOCKER_BUILDKIT=1 must be set and docker 19.03 is required
+
 **/node_modules
 *.egg-info
 # Prevent cache invalidations caused by editing dockerfiles
