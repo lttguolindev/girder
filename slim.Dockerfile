@@ -3,12 +3,7 @@ EXPOSE 8080
 
 WORKDIR /girder
 
-RUN apt-get update \
-  && apt-get install -qy --no-install-recommends \
-    libldap2-dev \
-    libsasl2-dev \
-  && rm -rf /var/lib/apt/lists/*
-COPY . /girder/
+COPY . ./
 
 ARG BUILD_ENV=docker-slim
 
