@@ -1,4 +1,5 @@
 FROM python:3.7-slim as runtime
+LABEL maintainer="Kitware, Inc. <kitware@kitware.com>"
 EXPOSE 8080
 
 WORKDIR /girder
